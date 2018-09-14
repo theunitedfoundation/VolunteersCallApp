@@ -14,7 +14,38 @@
 
 
 <ion-content padding>
+ <form #f="ngForm" (ngSubmit)="onSignUp(f)">
+    <ion-list>
 
-  
+        <ion-item>
+          <ion-label floating>Name</ion-label>
+          <ion-input type="text" ngModel name="name" required></ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" ngModel name="email" required></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Gender</ion-label>
+              <ion-input type="text" ngModel name="gender" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Profession</ion-label>
+                <ion-input type="text" ngModel name="profession" required></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>Phone</ion-label>
+                  <ion-input type="number" ngModel name="phone" [max]="10" required ></ion-input>
+                </ion-item>
+      
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" name="password" [min]="6" required ></ion-input>
+        </ion-item>
+      
+      </ion-list>
+      <button ion-button type="submit" [disabled]="!f.valid">Sign Up</button>
+    </form>
 
 </ion-content>

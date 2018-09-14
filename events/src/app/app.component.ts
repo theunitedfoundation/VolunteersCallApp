@@ -5,11 +5,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 import { EventlistPage } from '../pages/eventlist/eventlist';
+import { SigninPage } from '../pages/signin/signin';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = EventlistPage;
+  rootPage:any = SigninPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

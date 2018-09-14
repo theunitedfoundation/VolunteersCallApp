@@ -10,13 +10,17 @@ import { MyApp } from './app.component';
 import {firebase_credentials} from './firebase.credentials';
 import { EventlistPage } from '../pages/eventlist/eventlist';
 import { AddeventPage } from '../pages/addevent/addevent';
+import { SigninPage } from '../pages/signin/signin';
+import { SignupPage } from '../pages/signup/signup';
 
 @NgModule({
   declarations: [
     MyApp,
     
     EventlistPage,
-    AddeventPage
+    AddeventPage,
+    SigninPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,9 @@ import { AddeventPage } from '../pages/addevent/addevent';
     MyApp,
     
     EventlistPage,
-    AddeventPage
+    AddeventPage,
+    SigninPage,
+    SignupPage
   ],
   providers: [
     StatusBar,

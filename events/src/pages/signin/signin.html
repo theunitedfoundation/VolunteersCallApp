@@ -7,12 +7,33 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>signin</ion-title>
+    <ion-title>Call For Volunteers </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <ion-list>
+
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      
+      </ion-list>
+      <div padding>
+          <button ion-button >Sign In</button>
+        </div>
+
+        <ion-label>Don't Have An Account</ion-label>
+        <div padding>
+            <button ion-button (click)="goToRegister()">Register</button>
+          </div>
 
 </ion-content>

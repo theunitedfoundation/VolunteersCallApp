@@ -14,23 +14,26 @@
 
 
 <ion-content padding>
-    <ion-list>
-
-        <ion-item>
-          <ion-label floating>Email</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-      
-        <ion-item>
-          <ion-label floating>Password</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-      
-      </ion-list>
-      <div padding>
-          <button ion-button >Sign In</button>
-        </div>
-
+    
+    <form #f="ngForm" (ngSubmit)="onSignIn(f)">
+        <ion-list>
+    
+           
+            
+            <ion-item>
+                <ion-label floating>Email</ion-label>
+                <ion-input type="email" ngModel name="email" required></ion-input>
+              </ion-item>
+           
+          
+            <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input type="password" name="password" required ></ion-input>
+            </ion-item>
+          
+          </ion-list>
+          <button ion-button type="submit" [disabled]="!f.valid">Sign In</button>
+        </form>
         <ion-label>Don't Have An Account</ion-label>
         <div padding>
             <button ion-button (click)="goToRegister()">Register</button>

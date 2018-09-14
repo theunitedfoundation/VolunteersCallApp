@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
-
+import {NgForm} from '@angular/forms';
+/**
 /**
  * Generated class for the SigninPage page.
  *
@@ -26,4 +27,8 @@ export class SigninPage {
  {
    this.navCtrl.push(SignupPage);
  }
+ onSignIn(form:NgForm){
+  console.log(form.value);
+
+}
 }

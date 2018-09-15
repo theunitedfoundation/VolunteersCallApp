@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { MyApp } from './app.component';
-
+import { HttpModule } from '@angular/http';
 import {firebase_credentials} from './firebase.credentials';
 import { EventlistPage } from '../pages/eventlist/eventlist';
 import { AddeventPage } from '../pages/addevent/addevent';
@@ -27,6 +27,7 @@ import { AuthService } from '../services/auth';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebase_credentials),
     AngularFireDatabaseModule

@@ -4,7 +4,7 @@ import { SignupPage } from '../signup/signup';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../services/auth';
 import { EventlistPage } from '../eventlist/eventlist';
-
+import {AddeventPage} from '../addevent/addevent'
 /**
 /**
  * Generated class for the SigninPage page.
@@ -30,6 +30,9 @@ export class SigninPage {
  {
    this.navCtrl.push(SignupPage);
  }
+ goToAddEvent() {
+  this.navCtrl.push(AddeventPage);
+}
  onSignIn(form:NgForm){
   const loading = this.loadingCtrl.create({
     content: 'Signing you in...'

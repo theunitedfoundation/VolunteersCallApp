@@ -1,16 +1,18 @@
-import { Component,ViewChild  } from '@angular/core';
+import { Component,ViewChild, Injectable  } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController,AlertController } from 'ionic-angular';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../services/auth';
 import { EventlistPage } from '../eventlist/eventlist';
-
+import { Http, Response } from "@angular/http";
+import { map } from 'rxjs/operators';
+import { auth } from '../../../node_modules/firebase';
 /**
  * Generated class for the SignupPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+@Injectable()
 @IonicPage()
 @Component({
   selector: 'page-signup',
@@ -18,7 +20,7 @@ import { EventlistPage } from '../eventlist/eventlist';
 })
 export class SignupPage {
   @ViewChild('password') password;
-  constructor(private alertCtrl:AlertController,private loadCtrl: LoadingController, private authService: AuthService, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private http:Http, private alertCtrl:AlertController,private loadCtrl: LoadingController, private authService: AuthService, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -39,7 +41,8 @@ export class SignupPage {
       console.log(data);
       loading.dismiss();
       this.navCtrl.push(EventlistPage);
-    })
+      
+      })
     .catch(error=>{
       loading.dismiss();
         const alert = this.alertCtrl.create({

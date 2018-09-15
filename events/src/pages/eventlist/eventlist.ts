@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ActionSheetController } from 'ioni
 import { AddeventPage } from '../addevent/addevent';
 import { EventItem } from '../../models/event-item/event-item.interface';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-
+import {AuthService} from '../../services/auth'
 import { Observable } from 'rxjs';
 /**
  * Generated class for the EventlistPage page.
@@ -21,7 +21,7 @@ export class EventlistPage {
 
   eventListRef$ : Observable<any[]>
 
-  constructor(private database: AngularFireDatabase,public navCtrl: NavController,private actionSheetCtrl: ActionSheetController, public navParams: NavParams) {
+  constructor(private authService:AuthService,private database: AngularFireDatabase,public navCtrl: NavController,private actionSheetCtrl: ActionSheetController, public navParams: NavParams) {
 
     this.eventListRef$ = this.database.list('eventlist').valueChanges();
     
@@ -32,5 +32,8 @@ export class EventlistPage {
   }
   goToAddEvent() {
     this.navCtrl.push(AddeventPage);
+  }
+  onLogOut(){
+    this.authService.logOut();
   }
 }

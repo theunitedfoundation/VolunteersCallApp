@@ -12,6 +12,8 @@ import { EventlistPage } from '../pages/eventlist/eventlist';
 import { AddeventPage } from '../pages/addevent/addevent';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
+import { FormsModule } from '../../node_modules/@angular/forms';
+import { AuthService } from '../services/auth';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { SignupPage } from '../pages/signup/signup';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebase_credentials),
     AngularFireDatabaseModule
@@ -41,6 +44,7 @@ import { SignupPage } from '../pages/signup/signup';
   providers: [
     StatusBar,
     SplashScreen,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

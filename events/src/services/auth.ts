@@ -4,4 +4,8 @@ export class AuthService{
       return firebase.auth().createUserWithEmailAndPassword(email,password);
      
  }
+
+ signIn(email:string,password:string){
+     return firebase.auth().signInWithEmailAndPassword(email,password);
+ }
 }

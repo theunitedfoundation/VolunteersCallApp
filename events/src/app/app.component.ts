@@ -21,12 +21,7 @@ export class MyApp {
 
   constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     firebase.initializeApp({
-      apiKey: "AIzaSyA66h4aPIsyZ94M_cruTO8XWJb8yw4kb0c",
-      authDomain: "eventsapp-1b654.firebaseapp.com",
-      databaseURL: "https://eventsapp-1b654.firebaseio.com",
-      projectId: "eventsapp-1b654",
-      storageBucket: "eventsapp-1b654.appspot.com",
-      messagingSenderId: "1036477319226"
+     "Your firebase credentials"
     });
     firebase.auth().onAuthStateChanged(user => {
       if (user) {

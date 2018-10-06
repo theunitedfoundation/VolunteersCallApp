@@ -6,6 +6,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {AuthService} from '../../services/auth'
 import { Observable } from 'rxjs';
 import { SigninPage } from '../signin/signin';
+import {EventdetailsPage} from '../eventdetails/eventdetails';
 /**
  * Generated class for the EventlistPage page.
  *
@@ -34,6 +35,19 @@ export class EventlistPage {
   }
   goToAddEvent() {
     this.navCtrl.push(AddeventPage);
+  }
+  cardtapped(event){
+    this.navCtrl.push(EventdetailsPage, {
+      eventName: event.eventName,
+      eventDescription: event.eventDescription,
+      date:event.date,
+      time:event.time,
+      phone:event.phone,
+      email:event.email,
+      volunteersneeded: event.volunteersNeeded,
+      venue: event.venue
+
+  });
   }
   onLogOut(){
     this.authService.logOut();

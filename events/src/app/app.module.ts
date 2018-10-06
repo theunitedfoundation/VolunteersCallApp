@@ -14,6 +14,7 @@ import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { settingsPage } from '../pages/settings/settings';
 import { NewsPage } from '../pages/news/news';
+import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
 import { ProfilePage } from '../pages/profile/profile';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { AuthService } from '../services/auth';
@@ -22,7 +23,7 @@ import { AuthService } from '../services/auth';
 @NgModule({
   declarations: [
     MyApp,
-    
+    EventdetailsPage,
     EventlistPage,
     AddeventPage,
     SigninPage,
@@ -44,7 +45,7 @@ import { AuthService } from '../services/auth';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    
+    EventdetailsPage,
     EventlistPage,
     AddeventPage,
     SigninPage,

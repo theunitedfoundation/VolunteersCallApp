@@ -14,5 +14,45 @@
 
 
 <ion-content padding>
+    <ion-item center text-center>
+        <h2>{{eventName}}</h2>
+    </ion-item>
+
+    <ion-list>
+        <ion-item>
+            <p>{{eventDescription}}</p>
+          </ion-item>
+
+          <ion-item>
+              <p> Date: {{date}}</p>
+          </ion-item>
+
+          <ion-item>
+              <p> Time: {{time}}</p>
+          </ion-item>
+
+          <ion-item>
+              <ion-icon name='pin'></ion-icon>  Venue:  {{venue}}
+          </ion-item>
+
+          <ion-item>
+              <ion-icon name='man'></ion-icon>  Volunteers Needed: {{volunteersneeded}}
+          </ion-item>
+
+           <h4>Contact:</h4>
+        <ion-item>
+            <button ion-button color="primary" clear small icon-left >
+              <ion-icon name='call'></ion-icon>{{phone}}
+        </button>
+          </ion-item>
+          <ion-item>
+               <button ion-button color="primary" clear small icon-left >
+                <ion-icon name='mail'></ion-icon>{{email}}
+               </button>
+            </ion-item>
+            
+    </ion-list>
+
+    <button ion-button (click)="Signevent()" >Sign Up</button>
 
 </ion-content>

@@ -17,9 +17,21 @@ export class EventdetailsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
+    eventName= this.navParams.get('eventName');
+    eventDescription= this.navParams.get('eventDescription');
+    date= this.navParams.get('date');
+    time= this.navParams.get('time');
+    phone= this.navParams.get('phone');
+    email= this.navParams.get('email');
+    volunteersneeded= this.navParams.get('volunteersneeded');
+    venue= this.navParams.get('venue');
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventdetailsPage');
+  }
+
+  Signevent(){
+    alert("Thanks for signing up");
   }
 
 }

@@ -22,12 +22,7 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
   constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     firebase.initializeApp({
-      apiKey: "AIzaSyD_8CkpNmdpzQacmLD2vDmB8IrFCHkefrc",
-     authDomain: "volunteercall-a2de1.firebaseapp.com",
-     databaseURL: "https://volunteercall-a2de1.firebaseio.com",
-     projectId: "volunteercall-a2de1",
-     storageBucket: "volunteercall-a2de1.appspot.com",
-     messagingSenderId: "333057397510"
+"your firebase credentials"
     });
     firebase.auth().onAuthStateChanged(user => {
       if (user) {

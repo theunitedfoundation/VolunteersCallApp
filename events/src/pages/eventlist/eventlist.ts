@@ -5,6 +5,7 @@ import { EventItem } from '../../models/event-item/event-item.interface';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {AuthService} from '../../services/auth'
 import { Observable } from 'rxjs';
+import { SigninPage } from '../signin/signin';
 /**
  * Generated class for the EventlistPage page.
  *
@@ -36,5 +37,6 @@ export class EventlistPage {
   }
   onLogOut(){
     this.authService.logOut();
+    this.navCtrl.push(SigninPage);
   }
 }

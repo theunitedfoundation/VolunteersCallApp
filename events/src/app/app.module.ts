@@ -12,6 +12,9 @@ import { EventlistPage } from '../pages/eventlist/eventlist';
 import { AddeventPage } from '../pages/addevent/addevent';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
+import { settingsPage } from '../pages/settings/settings';
+import { NewsPage } from '../pages/news/news';
+import { ProfilePage } from '../pages/profile/profile';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { AuthService } from '../services/auth';
 
@@ -24,6 +27,9 @@ import { AuthService } from '../services/auth';
     AddeventPage,
     SigninPage,
     SignupPage,
+    settingsPage,
+    NewsPage,
+    ProfilePage
    
   ],
   imports: [
@@ -43,6 +49,9 @@ import { AuthService } from '../services/auth';
     AddeventPage,
     SigninPage,
     SignupPage,
+    settingsPage,
+    NewsPage,
+    ProfilePage
   
   ],
   providers: [

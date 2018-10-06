@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController } from 'ionic-angular';
+import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from 'firebase';
@@ -7,13 +7,17 @@ import firebase from 'firebase';
 import { EventlistPage } from '../pages/eventlist/eventlist';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
+import { settingsPage } from '../pages/settings/settings';
+import { NewsPage } from '../pages/news/news';
+import { AddeventPage } from '../pages/addevent/addevent';
+import { ProfilePage } from '../pages/profile/profile';
 import {AuthService} from '../services/auth'
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild ('nav') nav: NavController; //can't inject nav controller in the constructor in the root component
+  @ViewChild (Nav) nav: Nav; //can't inject nav controller in the constructor in the root component
   rootPage:any = EventlistPage;
   eventsListPage=EventlistPage;
   signinPage = SigninPage;
@@ -22,7 +26,12 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
   constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     firebase.initializeApp({
-"your firebase credentials"
+      apiKey: "AIzaSyDGfFA_nMECpByJdoydqyHfEuDwRftftOo",
+      authDomain: "volunteerapp-b1364.firebaseapp.com",
+      databaseURL: "https://volunteerapp-b1364.firebaseio.com",
+      projectId: "volunteerapp-b1364",
+      storageBucket: "volunteerapp-b1364.appspot.com",
+      messagingSenderId: "547161890493"
     });
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -33,11 +42,24 @@ export class MyApp {
         this.isAuthenticated = false;
         this.rootPage=SigninPage;
       }
+      if(!this.isAuthenticated){
+        this.pages = [
+          { title: 'SignIn', component: SigninPage },
+          { title: 'Register', component: SignupPage}
+        ];
+      }else{
+        this.pages = [
+          { title: 'news', component: NewsPage},
+          { title: 'settings', component: settingsPage},
+          { title: 'events', component: EventlistPage},
+          { title: 'profile', component: ProfilePage }
+        
+    
+        ];
+      }
+
     });
-    this.pages = [
-      { title: 'SignIn', component: SigninPage },
-      { title: 'Register', component: SignupPage}
-    ];
+
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -54,6 +76,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.rootPage=page.component
+    //this.nav.setRoot(page.Component);
   }
 }

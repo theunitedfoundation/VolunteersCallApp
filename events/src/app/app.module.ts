@@ -15,6 +15,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { AuthService } from '../services/auth';
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,7 +23,8 @@ import { AuthService } from '../services/auth';
     EventlistPage,
     AddeventPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+   
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { AuthService } from '../services/auth';
     EventlistPage,
     AddeventPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+  
   ],
   providers: [
     StatusBar,

@@ -35,7 +35,8 @@ export class AddeventPage {
       eventName: this.eventItem.eventName,
       eventDescription: this.eventItem.eventDescription,
       venue: this.eventItem.venue,
-      dateTime: this.eventItem.dateTime,
+      date: this.eventItem.date,
+      time:this.eventItem.time,
       volunteersNeeded:Number(this.eventItem.volunteersNeeded),
       phone:Number(this.eventItem.phone),
       email: this.eventItem.email
@@ -45,7 +46,7 @@ export class AddeventPage {
 
     this.eventItem = {} as EventItem;
      
-    this.navCtrl.pop();
+    this.navCtrl.popToRoot();
 
   }
 

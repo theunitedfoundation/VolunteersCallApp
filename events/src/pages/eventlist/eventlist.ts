@@ -18,11 +18,12 @@ import { Observable } from 'rxjs';
   templateUrl: 'eventlist.html',
 })
 export class EventlistPage {
+  username: String;
 
   eventListRef$ : Observable<any[]>
 
   constructor(private authService:AuthService,private database: AngularFireDatabase,public navCtrl: NavController,private actionSheetCtrl: ActionSheetController, public navParams: NavParams) {
-
+    
     this.eventListRef$ = this.database.list('eventlist').valueChanges();
     
   }

@@ -31,10 +31,14 @@
             <ion-input type="text" [(ngModel)]="eventItem.venue"></ion-input>
           </ion-item>
           <ion-item>
-              <ion-label>Date And Time</ion-label>
-              <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="eventItem.dateTime"></ion-datetime>
+              <ion-label>Date</ion-label>
+              <ion-datetime displayFormat="DDDD, MMM D,YYYY" [(ngModel)]="eventItem.date"></ion-datetime>
             </ion-item>
-            
+
+             <ion-item>
+              <ion-label>Time</ion-label>
+              <ion-datetime displayFormat="h:mm A" [(ngModel)]="eventItem.time"></ion-datetime>
+            </ion-item>
                
           <ion-item>
               <ion-label floating>Volunteers Needed</ion-label>

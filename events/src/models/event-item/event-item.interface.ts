@@ -6,7 +6,8 @@ export interface EventItem {
     eventName: string;
     eventDescription: string;
     venue: string;
-    dateTime:string;
+    date:string;
+    time:string;
     volunteersNeeded: number;
     phone: number;
     email: string;

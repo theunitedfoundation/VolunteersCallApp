@@ -14,6 +14,38 @@
 
 
 <ion-content padding>
+  <ion-list>
 
-<button (click)="chooseImage()"><ion-icon name="image">Select Image</ion-icon></button>
+    <ion-item>
+      <ion-label floating>News Title</ion-label>
+      <ion-input type="text" [(ngModel)]="newsItem.newsTitle"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>News Subtitle</ion-label>
+      <ion-input type="text" [(ngModel)]="newsItem.newsSubtitle"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>News Body</ion-label>
+        <ion-input type="text" [(ngModel)]="newsItem.newsBody"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>News Date</ion-label>
+          <ion-datetime displayFormat="DDDD, MMM D,YYYY" [(ngModel)]="newsItem.newsDate"></ion-datetime>
+        </ion-item>
+        
+          
+           
+      <ion-item>
+          <ion-label floating>News Author</ion-label>
+          <ion-input type="text" [(ngModel)]="newsItem.newsAuthor"></ion-input>
+        </ion-item>
+        <ion-label>News Photo</ion-label>
+        <button (click)="chooseImage()"><ion-icon name="image">Select Image</ion-icon></button>
+            <button ion-button (click)="addNews(newsItem)">
+              Add News
+            </button>
+  
+  </ion-list>
+
 </ion-content>

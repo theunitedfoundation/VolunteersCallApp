@@ -5,6 +5,8 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import firebase from 'firebase';
 import { LoadingController } from 'ionic-angular';
 import { FilePath } from '@ionic-native/file-path';
+import { NewsItem } from 'models/news-item/news-item.interface';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 /**
  * Generated class for the AddnewsPage page.
  *
@@ -19,7 +21,11 @@ import { FilePath } from '@ionic-native/file-path';
 })
 export class AddnewsPage {
   downloadUrl: string;
-  constructor(public loadingCtrl: LoadingController,private filePath: FilePath,private fileChooser:FileChooser,private file: File,public navCtrl: NavController, public navParams: NavParams) {
+  newsItem = {} as NewsItem;
+
+  newsItemRef$ : AngularFireList<NewsItem> 
+  constructor(private database: AngularFireDatabase,public loadingCtrl: LoadingController,private filePath: FilePath,private fileChooser:FileChooser,private file: File,public navCtrl: NavController, public navParams: NavParams) {
+    this.newsItemRef$ = this.database.list('newslist');
   }
 
   ionViewDidLoad() {
@@ -54,9 +60,32 @@ export class AddnewsPage {
       alert(image.ref.getDownloadURL().then(img=>{
         
         this.downloadUrl = img.toString();
+        alert('uploaded');
       }));
     }).catch((error)=>{
       alert(JSON.stringify(error));
     })
+  }
+
+  addNews(newsItem: NewsItem){
+
+    console.log(newsItem);
+    this.newsItemRef$.push({
+      
+      newsTitle: this.newsItem.newsTitle,
+      newsSubtitle: this.newsItem.newsSubtitle,
+      newsBody: this.newsItem.newsBody,
+      newsAuthor: this.newsItem.newsAuthor,
+      newsPhotoUrl:this.downloadUrl,
+      newsDate:this.newsItem.newsDate
+      
+
+
+    });
+
+    this.newsItem = {} as NewsItem;
+     
+    this.navCtrl.popToRoot();
+
   }
 }

@@ -13,6 +13,7 @@ import { AddeventPage } from '../pages/addevent/addevent';
 import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
 import { ProfilePage } from '../pages/profile/profile';
 import {AuthService} from '../services/auth'
+import { ENV } from '../environments/environment.dev';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,9 +27,7 @@ export class MyApp {
   isAuthenticated = false;
   pages: Array<{title: string, component: any}>;
   constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    firebase.initializeApp({
-      "Credentials"
-    });
+    firebase.initializeApp(ENV);
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
 

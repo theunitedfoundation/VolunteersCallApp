@@ -7,7 +7,6 @@ import { AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
-import {firebase_credentials} from './firebase.credentials';
 import { EventlistPage } from '../pages/eventlist/eventlist';
 import { AddeventPage } from '../pages/addevent/addevent';
 import { SigninPage } from '../pages/signin/signin';
@@ -18,7 +17,7 @@ import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
 import { ProfilePage } from '../pages/profile/profile';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { AuthService } from '../services/auth';
-
+import { ENV } from '../environments/environment.dev'
 
 @NgModule({
   declarations: [
@@ -38,7 +37,7 @@ import { AuthService } from '../services/auth';
     FormsModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebase_credentials),
+    AngularFireModule.initializeApp(ENV),
     AngularFireDatabaseModule
     
   ],

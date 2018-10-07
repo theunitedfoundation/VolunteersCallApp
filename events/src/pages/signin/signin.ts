@@ -5,6 +5,8 @@ import {NgForm} from '@angular/forms';
 import {AuthService} from '../../services/auth';
 import { EventlistPage } from '../eventlist/eventlist';
 import {AddeventPage} from '../addevent/addevent'
+import { NewsPage } from '../news/news';
+import { AddnewsPage } from '../addnews/addnews';
 /**
 /**
  * Generated class for the SigninPage page.
@@ -32,6 +34,9 @@ export class SigninPage {
  }
  goToAddEvent() {
   this.navCtrl.push(AddeventPage);
+}
+goToAddNews() {
+  this.navCtrl.push(AddnewsPage);
 }
  onSignIn(form:NgForm){
   const loading = this.loadingCtrl.create({

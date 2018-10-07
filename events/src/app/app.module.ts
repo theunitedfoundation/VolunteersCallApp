@@ -17,8 +17,11 @@ import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
 import { ProfilePage } from '../pages/profile/profile';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { AuthService } from '../services/auth';
-import { ENV } from '../environments/environment.dev'
-
+import { ENV } from '../environments/environment.dev';
+import { File } from '@ionic-native/file';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { AddnewsPage } from '../pages/addnews/addnews';
+import { FilePath } from '@ionic-native/file-path';
 @NgModule({
   declarations: [
     MyApp,
@@ -29,7 +32,8 @@ import { ENV } from '../environments/environment.dev'
     SignupPage,
     settingsPage,
     NewsPage,
-    ProfilePage
+    ProfilePage,
+    AddnewsPage
    
   ],
   imports: [
@@ -51,6 +55,7 @@ import { ENV } from '../environments/environment.dev'
     SignupPage,
     settingsPage,
     NewsPage,
+    AddnewsPage,
     ProfilePage
   
   ],
@@ -58,6 +63,9 @@ import { ENV } from '../environments/environment.dev'
     StatusBar,
     SplashScreen,
     AuthService,
+    File,
+    FilePath,
+    FileChooser,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

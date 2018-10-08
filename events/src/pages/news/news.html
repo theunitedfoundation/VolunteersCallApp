@@ -10,12 +10,24 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>news</ion-title>
+    <ion-title>NewsList</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-card *ngFor="let news of newsListRef$ | async">
+        <ion-card-header>
+            <h2>{{news.newsTitle}}</h2>
+          </ion-card-header>
+          <ion-card-content>
+              <h3>{{news.newsSubtitle}}</h3>
+              <img src="{{news.newsPhotoUrl}}" alt="Loading News..." height="200" width="200">
+          
+              <h4>{{news.newsAuthor}}</h4>
+              <h4>{{news.newsDate}}</h4>
+              <p>{{news.newsBody}}</p>
+          </ion-card-content>
+      </ion-card>
 </ion-content>

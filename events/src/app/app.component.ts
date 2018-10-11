@@ -3,7 +3,6 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from 'firebase';
-
 import { EventlistPage } from '../pages/eventlist/eventlist';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
@@ -13,7 +12,7 @@ import { AddeventPage } from '../pages/addevent/addevent';
 import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
 import { ProfilePage } from '../pages/profile/profile';
 import {AuthService} from '../services/auth'
-import { ENV } from '../environments/environment.dev';
+import { ENV } from '../environments/environment';//change it to ...dev when testing on android
 
 @Component({
   templateUrl: 'app.html'
@@ -39,15 +38,16 @@ export class MyApp {
       }
       if(!this.isAuthenticated){
         this.pages = [
-          { title: 'SignIn', component: SigninPage },
+          { title: 'Log In', component: SigninPage },
           { title: 'Register', component: SignupPage}
         ];
       }else{
         this.pages = [
-          { title: 'news', component: NewsPage},
-          { title: 'settings', component: settingsPage},
-          { title: 'events', component: EventlistPage},
-          { title: 'profile', component: ProfilePage }
+          { title: 'News', component: NewsPage},
+          { title: 'Settings', component: settingsPage},
+          { title: 'Events', component: EventlistPage},
+          { title: 'Profile', component: ProfilePage }
+          
 
 
         ];

@@ -11,6 +11,9 @@ log.txt
 *.sublime-workspace
 .vscode/
 npm-debug.log*
+# Envrionment Variables
+**/environment.*
+!**/environment.model.ts
 
 .idea/
 .ionic/

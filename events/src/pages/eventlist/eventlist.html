@@ -22,21 +22,36 @@
 
 <ion-content padding>
 
-  <ion-list>
-    <ion-item *ngFor="let event of eventListRef$ | async">
-     <h3>{{event.eventName}}</h3>
-     <h4>{{event.eventDescription}}</h4>
-     <h4>{{event.venue}}</h4>
-     <h4>{{event.date}}</h4>
-     <h4>{{event.time}}</h4>
-     <h4>{{event.volunteersNeeded}}</h4>
-     <h4>{{event.phone}}</h4>
-     <h4>{{event.email}}</h4>
-    </ion-item>
-  </ion-list>
+    <ion-card *ngFor="let event of eventListRef$ | async" (click)="cardtapped(event)">
+        <ion-item>
+          <h2>{{event.eventName}}</h2>
+        </ion-item>
+        <ion-card-content>
+            <p>{{event.eventDescription}}</p>
+            <p><ion-icon name='calendar'></ion-icon>  {{event.date}}</p>
+            <p><ion-icon name='clock'></ion-icon>  {{event.time}}</p>
+            <ion-row>
+                <ion-col>
+                    <button ion-button color="primary" clear small icon-left >
+                      <ion-icon name='man'></ion-icon>
+                      Volunteers Needed: {{event.volunteersNeeded}}
+                    </button>
+                </ion-col>
 
-  <button ion-button (click)="goToAddEvent()" disabled>Go to Add Event</button>
+                  <ion-col>
+                      <button ion-button color="primary" clear small icon-left >
+                          <ion-icon name='pin'></ion-icon> {{event.venue}}
+                      </button>
+                  </ion-col>
+              </ion-row>
+          </ion-card-content>
+      </ion-card>
 
+      
+
+
+
+ 
   <button ion-button (click)="onLogOut()">LogOut</button>
 
 

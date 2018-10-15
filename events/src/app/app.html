@@ -1,14 +1,16 @@
-<ion-menu [content]="content" persistent="true">
+<ion-menu [content]="content" persistent="true" >
         <ion-header>
-          <ion-toolbar>
+          <ion-toolbar >
             <ion-title>Volunteers Call</ion-title>
           </ion-toolbar>
         </ion-header>
       
-        <ion-content>
+        <ion-content class="bk">
           <ion-list>
-            <button menu-toggle ion-item *ngFor="let p of pages" (click)="openPage(p)">
+            <button menu-toggle ion-item *ngFor="let p of pages" (click)="openPage(p)" class="trm">
               {{p.title}}
+              <ion-icon [name]="p.icon" item-left></ion-icon>
+        {{ p.name }}
             </button>
           </ion-list>
         </ion-content>

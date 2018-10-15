@@ -13,32 +13,43 @@
 
       </ion-icon>
     </button>
-    <ion-title>Eventslist</ion-title>
+    <ion-title>Events</ion-title>
    
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+
+<ion-content padding class="theme-color">
 
     <ion-card *ngFor="let event of eventListRef$ | async" (click)="cardtapped(event)">
         <ion-item>
-          <h2>{{event.eventName}}</h2>
+          <h2><b>{{event.eventName}}</b></h2>
         </ion-item>
         <ion-card-content>
             <p>{{event.eventDescription}}</p>
-            <p><ion-icon name='calendar'></ion-icon>  {{event.date}}</p>
-            <p><ion-icon name='clock'></ion-icon>  {{event.time}}</p>
             <ion-row>
-                <ion-col>
+              <ion-col>
+                <p><ion-icon name='calendar'></ion-icon>  {{event.date}}</p>
+              </ion-col>
+              <ion-col>
+                <p><ion-icon name='time'></ion-icon>  {{event.time}}</p>
+              </ion-col>
+              
+
+            </ion-row>
+            
+            
+            <ion-row>
+                <ion-col no-padding no-margin>
                     <button ion-button color="primary" clear small icon-left >
                       <ion-icon name='man'></ion-icon>
                       Volunteers Needed: {{event.volunteersNeeded}}
                     </button>
                 </ion-col>
 
-                  <ion-col>
+                  <ion-col no-padding no-margin>
                       <button ion-button color="primary" clear small icon-left >
                           <ion-icon name='pin'></ion-icon> {{event.venue}}
                       </button>

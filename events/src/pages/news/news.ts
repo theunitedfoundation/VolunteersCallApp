@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Observable } from 'rxjs';
+import {AngularFireDatabase} from 'angularfire2/database';
 
 /**
  * Generated class for the NewsPage page.
@@ -15,7 +17,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NewsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  newsListRef$ : Observable<any[]>
+
+  constructor(private database: AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams) {
+    this.newsListRef$ = this.database.list('newslist').valueChanges();
   }
 
   ionViewDidLoad() {

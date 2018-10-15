@@ -1,9 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav } from 'ionic-angular';
+import { Platform, Nav, Icon } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from 'firebase';
-
 import { EventlistPage } from '../pages/eventlist/eventlist';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
@@ -13,7 +12,9 @@ import { AddeventPage } from '../pages/addevent/addevent';
 import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
 import { ProfilePage } from '../pages/profile/profile';
 import {AuthService} from '../services/auth'
-import { ENV } from '../environments/environment.dev';
+
+import { ENV } from '../environments/environment';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +26,7 @@ export class MyApp {
   signinPage = SigninPage;
   signupPage = SignupPage;
   isAuthenticated = false;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any,icon:string}>;
   constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     firebase.initializeApp(ENV);
     firebase.auth().onAuthStateChanged(user => {
@@ -38,16 +39,19 @@ export class MyApp {
         this.rootPage=SigninPage;
       }
       if(!this.isAuthenticated){
-        this.pages = [
-          { title: 'SignIn', component: SigninPage },
-          { title: 'Register', component: SignupPage}
+
+        //this.rootPage=SigninPage;
+       this.pages = [
+          { title: 'SignIn', component: SigninPage , icon: "log-in"},
+          { title: 'Register', component: SignupPage, icon: "book"}
         ];
       }else{
         this.pages = [
-          { title: 'news', component: NewsPage},
-          { title: 'settings', component: settingsPage},
-          { title: 'events', component: EventlistPage},
-          { title: 'profile', component: ProfilePage }
+          { title: 'news', component: NewsPage, icon: "paper"},
+          { title: 'settings', component: settingsPage, icon: "settings"},
+          { title: 'events', component: EventlistPage, icon: "albums" },
+          { title: 'profile', component: ProfilePage , icon: "person"}
+
 
 
         ];

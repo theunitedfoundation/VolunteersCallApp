@@ -33,34 +33,47 @@ export class AddnewsPage {
   }
   
   chooseImage()
-  {
+  { 
+    const loading = this.loadingCtrl.create({
+      content: 'Selecting Image....'
+    });
+    loading.present();
     this.fileChooser.open().then((uri)=>{
-      alert(uri);
+      //alert(uri);
       this.filePath.resolveNativePath(uri).then((filePath)=>{
-        alert(filePath);
+        //alert(filePath);
         let dirPathSegements = filePath.split('/');
         let fileName=dirPathSegements[dirPathSegements.length-1];
         dirPathSegements.pop();
         let dirPath = dirPathSegements.join('/');
+        loading.dismiss();
         this.file.readAsArrayBuffer(dirPath,fileName).then(async (buffer)=>{
+          
           await this.upload(buffer,fileName);
+        
         }).catch((err)=>{
           alert(err.toString());
+          alert("Image not uploaded");
         });
       });
     });
   }
 
   async upload(buffer,name)
-  {
+  {const loading = this.loadingCtrl.create({
+    content: 'Uploading Image....'
+  });
+  loading.present();
     let blob = new Blob([buffer],{type:"image/jpeg"})
     let storage = firebase.storage();
     storage.ref('newsimages/'+name).put(blob).then((image)=>{
-      alert("Done");
-      alert(image.ref.getDownloadURL().then(img=>{
+      //alert("Done");
+      (image.ref.getDownloadURL().then(img=>{
         
         this.downloadUrl = img.toString();
-        alert('uploaded');
+      
+       loading.dismiss();
+       alert('Image Uploaded');
       }));
     }).catch((error)=>{
       alert(JSON.stringify(error));
@@ -68,8 +81,11 @@ export class AddnewsPage {
   }
 
   addNews(newsItem: NewsItem){
-
+    const loading = this.loadingCtrl.create({
+      content: 'Adding News....'
+    });
     console.log(newsItem);
+    loading.present();
     this.newsItemRef$.push({
       
       newsTitle: this.newsItem.newsTitle,
@@ -79,10 +95,8 @@ export class AddnewsPage {
       newsPhotoUrl:this.downloadUrl,
       newsDate:this.newsItem.newsDate
       
-
-
     });
-
+    loading.dismiss();
     this.newsItem = {} as NewsItem;
      
     this.navCtrl.popToRoot();

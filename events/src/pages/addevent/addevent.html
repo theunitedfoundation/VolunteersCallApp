@@ -6,17 +6,20 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
+  <ion-navbar class="toolbar-background">
+
+      
     <ion-title>Add a New Event</ion-title>
+
+      
+   
+
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="theme-color">
 
     <ion-list>
 
@@ -49,7 +52,7 @@
             </ion-item>
 
 
-            <h4>Contact:</h4>
+            <h4 color="black">Contact:</h4>
             <ion-item>
                 <ion-label floating>Phone</ion-label>
                 <ion-input type="number" [(ngModel)]="eventItem.phone"></ion-input>

@@ -12,9 +12,7 @@ import { AddeventPage } from '../pages/addevent/addevent';
 import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
 import { ProfilePage } from '../pages/profile/profile';
 import {AuthService} from '../services/auth'
-
-import { ENV } from '../environments/environment';
-
+import { ENV } from '../environments/environment.dev';
 
 @Component({
   templateUrl: 'app.html'

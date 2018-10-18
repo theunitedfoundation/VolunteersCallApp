@@ -17,11 +17,11 @@ import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
 import { ProfilePage } from '../pages/profile/profile';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { AuthService } from '../services/auth';
-import { ENV } from '../environments/environment.dev';
 import { File } from '@ionic-native/file';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { AddnewsPage } from '../pages/addnews/addnews';
 import { FilePath } from '@ionic-native/file-path';
+import { ENV } from '../environments/environment.dev';
 @NgModule({
   declarations: [
     MyApp,

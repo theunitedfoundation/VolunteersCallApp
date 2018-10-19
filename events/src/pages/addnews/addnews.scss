@@ -2,5 +2,13 @@ page-addnews {
     .tool_bar{
         height: 100%;
     }
-   
+    ion-item:first-child {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      ion-item:last-child {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    
 }

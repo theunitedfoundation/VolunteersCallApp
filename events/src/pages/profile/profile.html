@@ -18,21 +18,29 @@
 
 <ion-content padding>
     <ion-card>
-
-        <ion-card-header>
-            <h2><b>{{userName}}</b></h2>
-       
-        </ion-card-header>
      
         <ion-card-content>
           <!-- Add card content here! -->
-          <h5>{{userEmail}}</h5>
-          <h5> {{userGender}}</h5>
-          <h5>{{userPhone}}</h5>
-         <h5>{{userProfession}}</h5> 
-        </ion-card-content>
-      
-      </ion-card>
+          <ion-list>
+            <ion-item>
+                <p>Email address: {{userEmail}}</p>
+              </ion-item>
+    
+              <ion-item>
+                  <p>Gender:  {{userGender}}</p>
+              </ion-item>
+    
+              <ion-item>
+                  <p>Phone: {{userPhone}}</p>
+              </ion-item>
 
+              <ion-item>
+                <p>Profession: {{userProfession}}</p>
+            </ion-item>
+           </ion-list>
+          
+        
+          </ion-card-content>
+        </ion-card>
 
 </ion-content>

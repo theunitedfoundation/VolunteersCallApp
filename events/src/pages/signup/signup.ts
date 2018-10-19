@@ -27,10 +27,12 @@ export class SignupPage {
   public profession : any;
   public userProfile: any;
  
+ 
   
   @ViewChild('password') password;
   constructor(private http:Http, private alertCtrl:AlertController,private loadCtrl: LoadingController, private authService: AuthService, public navCtrl: NavController, public navParams: NavParams) {
     this.userProfile = firebase.database().ref('volunteers');
+  
   }
 
   ionViewDidLoad() {

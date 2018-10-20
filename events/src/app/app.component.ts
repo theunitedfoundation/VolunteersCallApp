@@ -24,6 +24,8 @@ export class MyApp {
   signinPage = SigninPage;
   signupPage = SignupPage;
   isAuthenticated = false;
+
+  show: boolean = false;
   pages: Array<{title: string, component: any,icon:string}>;
   constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     firebase.initializeApp(ENV);
@@ -32,6 +34,7 @@ export class MyApp {
 
         this.isAuthenticated = true;
         this.rootPage=EventlistPage;//as firebase checks the user state asynchronously before the nav gets initialized
+        this.show = true;
       } else {
         this.isAuthenticated = false;
         this.rootPage=SigninPage;
@@ -68,6 +71,7 @@ export class MyApp {
 
   onLogOut(){
     this.authService.logOut();
+    this.show = false;
   }
 
   openPage(page) {

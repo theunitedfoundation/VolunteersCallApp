@@ -49,8 +49,8 @@ export class EventlistPage {
 
   });
   }
-  onLogOut(){
-    this.authService.logOut();
-    this.navCtrl.push(SigninPage);
-  }
+ // onLogOut(){
+   // this.authService.logOut();
+   // this.navCtrl.push(SigninPage);
+ // }
 }

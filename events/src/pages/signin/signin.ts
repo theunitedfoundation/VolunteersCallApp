@@ -9,6 +9,7 @@ import { NewsPage } from '../news/news';
 import { AddnewsPage } from '../addnews/addnews';
 import { AdmineventslistPage } from '../admineventslist/admineventslist';
 import { AdminNewslistPage } from '../admin-newslist/admin-newslist';
+import { PasswordresetPage } from '../passwordreset/passwordreset';
 /**
 /**
  * Generated class for the SigninPage page.
@@ -29,6 +30,9 @@ export class SigninPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SigninPage');
+  }
+  goToPasswordReset(){
+    this.navCtrl.push(PasswordresetPage);
   }
  goToRegister()
  {

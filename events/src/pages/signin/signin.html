@@ -36,6 +36,7 @@
           </ion-list>
           <button ion-button type="submit" [disabled]="!f.valid" >Sign In</button>
         </form>
+        <button ion-button round outline (click)="goToPasswordReset()">Forgot Password</button>
         <ion-label>Don't Have An Account</ion-label>
         <div >
             <button ion-button (click)="goToRegister()">Sign Up</button>

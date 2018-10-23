@@ -13,6 +13,55 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="theme-color">
+
+    <ion-list>
+
+        <ion-item>
+          <ion-label floating>Event Name</ion-label>
+          <ion-input type="text" [(ngModel)]="eventItem.eventName"></ion-input>
+        </ion-item>
+      
+            <ion-item>
+              <ion-label floating>Description</ion-label>
+              <ion-input type="text" [(ngModel)]="eventItem.eventDescription"></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-label floating>Venue</ion-label>
+            <ion-input type="text" [(ngModel)]="eventItem.venue"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Date</ion-label>
+              <ion-datetime displayFormat="DDDD, MMM D,YYYY" [(ngModel)]="eventItem.date"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Time</ion-label>
+              <ion-datetime displayFormat="h:mm A" [(ngModel)]="eventItem.time"></ion-datetime>
+            </ion-item>
+               
+            <ion-item>
+              <ion-label floating>Volunteers Needed</ion-label>
+              <ion-input type="number" [(ngModel)]="eventItem.volunteersneeded"></ion-input>
+            </ion-item>
+
+
+            <h4 color="black">Contact:</h4>
+              <ion-item>
+                <ion-label floating>Phone</ion-label>
+                <ion-input type="number" [(ngModel)]="eventItem.phone"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>Email</ion-label>
+                  <ion-input type="text" [(ngModel)]="eventItem.email"></ion-input>
+              </ion-item>
+
+                <button ion-button color="secondary" (click)="editEvent(eventItem)">
+                  Save Event
+                </button>
+                <button ion-button color="danger" (click)="deleteEvent(eventItem)">
+                   Delete Event
+                  </button>
+      </ion-list>
 
 </ion-content>

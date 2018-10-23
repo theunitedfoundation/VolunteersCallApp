@@ -37,7 +37,9 @@ export class EventlistPage {
     this.navCtrl.push(AddeventPage);
   }
   cardtapped(event){
+    
     this.navCtrl.push(EventdetailsPage, {
+      
       eventName: event.eventName,
       eventDescription: event.eventDescription,
       date:event.date,

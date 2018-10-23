@@ -34,10 +34,10 @@ export class AddnewsPage {
   
   chooseImage()
   { 
-    const loading = this.loadingCtrl.create({
-      content: 'Selecting Image....'
-    });
-    loading.present();
+    // const loading = this.loadingCtrl.create({
+    //   content: 'Selecting Image....'
+    // });
+    // loading.present();
     this.fileChooser.open().then((uri)=>{
       //alert(uri);
       this.filePath.resolveNativePath(uri).then((filePath)=>{
@@ -46,7 +46,7 @@ export class AddnewsPage {
         let fileName=dirPathSegements[dirPathSegements.length-1];
         dirPathSegements.pop();
         let dirPath = dirPathSegements.join('/');
-        loading.dismiss();
+        //loading.dismiss();
         this.file.readAsArrayBuffer(dirPath,fileName).then(async (buffer)=>{
           
           await this.upload(buffer,fileName);

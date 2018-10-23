@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EventItem } from '../../models/event-item/event-item.interface';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import firebase from 'firebase';
+import { Http, Response } from "@angular/http";
+import {AuthService} from '../../services/auth';
 /**
  * Generated class for the AddeventPage page.
  *
@@ -18,7 +21,7 @@ export class AddeventPage {
    eventItem = {} as EventItem;
 
    eventItemRef$ : AngularFireList<EventItem> 
-  constructor(private database: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private authService: AuthService,private database: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
 
     this.eventItemRef$ = this.database.list('eventlist');
   }
@@ -42,6 +45,11 @@ export class AddeventPage {
       email: this.eventItem.email
 
 
+    }).then(ref=>{
+      console.log(ref.key);
+      firebase.database().ref('eventlist/'+ref.key).update({
+        key:ref.key
+      })
     });
 
     this.eventItem = {} as EventItem;

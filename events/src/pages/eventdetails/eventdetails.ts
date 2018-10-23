@@ -28,6 +28,7 @@ export class EventdetailsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventdetailsPage');
+    console.log(this.navParams.get('venue'));
   }
 
   Signevent(){

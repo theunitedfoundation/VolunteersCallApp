@@ -21,7 +21,13 @@ import { File } from '@ionic-native/file';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { AddnewsPage } from '../pages/addnews/addnews';
 import { FilePath } from '@ionic-native/file-path';
+import { AdmineventslistPage } from '../pages/admineventslist/admineventslist';
+import { AdminNewslistPage } from '../pages/admin-newslist/admin-newslist';
+import { EditnewsPage } from '../pages/editnews/editnews';
+import { EditeventPage } from '../pages/editevent/editevent';
 import { ENV } from '../environments/environment.dev';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -33,7 +39,11 @@ import { ENV } from '../environments/environment.dev';
     settingsPage,
     NewsPage,
     ProfilePage,
-    AddnewsPage
+    AddnewsPage,
+    AdmineventslistPage,
+    AdminNewslistPage,
+    EditeventPage,
+    EditnewsPage
    
   ],
   imports: [
@@ -43,6 +53,7 @@ import { ENV } from '../environments/environment.dev';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(ENV),
     AngularFireDatabaseModule
+  
     
   ],
   bootstrap: [IonicApp],
@@ -56,7 +67,11 @@ import { ENV } from '../environments/environment.dev';
     settingsPage,
     NewsPage,
     AddnewsPage,
-    ProfilePage
+    ProfilePage,
+    AdmineventslistPage,
+    AdminNewslistPage,
+    EditeventPage,
+    EditnewsPage
   
   ],
   providers: [

@@ -13,6 +13,56 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="theme-color">
 
+  <ion-card *ngFor="let event of admineventListRef$ | async">
+      <ion-card-header>
+          <ion-row>
+              <ion-col>
+                  <ion-item>
+                      <h2><b>{{event.eventName}}</b></h2>
+                    </ion-item>
+              </ion-col>
+              <ion-col>
+                  <button ion-button color="secondary" outline (click)="goToEditEvent(event)">Edit</button>
+              </ion-col>
+              
+            </ion-row>
+          
+           
+        </ion-card-header>
+      
+      <ion-card-content>
+          
+          <p>{{event.eventDescription}}</p>
+          <ion-row>
+            <ion-col>
+              <p><ion-icon name='calendar'></ion-icon>  {{event.date}}</p>
+            </ion-col>
+            <ion-col>
+              <p><ion-icon name='time'></ion-icon>  {{event.time}}</p>
+              <p>{{event.key}}</p>
+            </ion-col>
+            
+
+          </ion-row>
+          
+          
+          <ion-row>
+              <ion-col no-padding no-margin>
+                  <button ion-button color="primary" clear small icon-left >
+                    <ion-icon name='man'></ion-icon>
+                    Volunteers Needed: {{event.volunteersNeeded}}
+                  </button>
+              </ion-col>
+
+                <ion-col no-padding no-margin>
+                    <button ion-button color="primary" clear small icon-left >
+                        <ion-icon name='pin'></ion-icon> {{event.venue}}
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
+

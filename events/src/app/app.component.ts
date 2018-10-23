@@ -61,10 +61,20 @@ export class MyApp {
     });
 
 
+    // platform.ready().then(() => {
+    //   // Okay, so the platform is ready and our plugins are available.
+    //   // Here you can do any higher level native things you might need.
+    //   statusBar.styleDefault();
+    //   splashScreen.hide();
+    // });
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
+      if (platform.is('android')) {
+        statusBar.overlaysWebView(false);
+        statusBar.backgroundColorByHexString('#000000');
+    }
       splashScreen.hide();
     });
   }

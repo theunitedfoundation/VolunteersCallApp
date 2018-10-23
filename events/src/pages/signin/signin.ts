@@ -7,6 +7,8 @@ import { EventlistPage } from '../eventlist/eventlist';
 import {AddeventPage} from '../addevent/addevent'
 import { NewsPage } from '../news/news';
 import { AddnewsPage } from '../addnews/addnews';
+import { AdmineventslistPage } from '../admineventslist/admineventslist';
+import { AdminNewslistPage } from '../admin-newslist/admin-newslist';
 /**
 /**
  * Generated class for the SigninPage page.
@@ -37,6 +39,12 @@ export class SigninPage {
 }
 goToAddNews() {
   this.navCtrl.push(AddnewsPage);
+}
+goToAdminEventsList(){
+  this.navCtrl.push(AdmineventslistPage);
+}
+goToAdminNewsList(){
+  this.navCtrl.push(AdminNewslistPage);
 }
  onSignIn(form:NgForm){
   const loading = this.loadingCtrl.create({

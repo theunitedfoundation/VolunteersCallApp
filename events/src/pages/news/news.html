@@ -16,7 +16,7 @@
 </ion-header>
 
 
-<ion-content padding class="theme-color">
+<ion-content class="theme-color">
     <ion-card *ngFor="let news of newsListRef$ | async">
         <ion-card-header>
             <h2><b>{{news.newsTitle}}</b></h2>
@@ -24,7 +24,7 @@
           <ion-card-content>
               <h3 text-wrap>{{news.newsSubtitle}}</h3>
               <p>{{news.newsBody}}</p>
-              <img src="{{news.newsPhotoUrl}}" alt="Loading News..." height="100" width="50">
+              <img src="{{news.newsPhotoUrl}}" alt="Loading News..." height="190" width="50">
           
               <h4 padding-top><ion-icon name="person" padding-right></ion-icon>   {{news.newsAuthor}}</h4>
               <h4 padding-top><ion-icon name="calendar" padding-right></ion-icon>   {{news.newsDate}}</h4>

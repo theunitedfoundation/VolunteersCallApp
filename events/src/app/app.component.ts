@@ -8,8 +8,8 @@ import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { settingsPage } from '../pages/settings/settings';
 import { NewsPage } from '../pages/news/news';
-import { AddeventPage } from '../pages/addevent/addevent';
-import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
+// import { AddeventPage } from '../pages/addevent/addevent';
+// import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
 import { ProfilePage } from '../pages/profile/profile';
 import {AuthService} from '../services/auth'
 import { ENV } from '../environments/environment.dev';
@@ -49,9 +49,9 @@ export class MyApp {
       }else{
         this.pages = [
           { title: 'news', component: NewsPage, icon: "paper"},
-          { title: 'settings', component: settingsPage, icon: "settings"},
           { title: 'events', component: EventlistPage, icon: "albums" },
-          { title: 'profile', component: ProfilePage , icon: "person"}
+          { title: 'profile', component: ProfilePage , icon: "person"},
+          { title: 'settings', component: settingsPage, icon: "settings"}
 
 
 

@@ -28,7 +28,8 @@ export class MyApp {
   show: boolean = false;
   pages: Array<{title: string, component: any,icon:string}>;
   constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    firebase.initializeApp(ENV);
+    firebase.initializeApp(ENV
+      );
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
 

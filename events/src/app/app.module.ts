@@ -27,6 +27,7 @@ import { EditnewsPage } from '../pages/editnews/editnews';
 import { EditeventPage } from '../pages/editevent/editevent';
 import { ENV } from '../environments/environment.dev';
 import { PasswordresetPage } from '../pages/passwordreset/passwordreset';
+import { EventregistrationsPage } from '../pages/eventregistrations/eventregistrations';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { PasswordresetPage } from '../pages/passwordreset/passwordreset';
     AdminNewslistPage,
     EditeventPage,
     EditnewsPage,
-    PasswordresetPage
+    PasswordresetPage,
+    EventregistrationsPage
    
   ],
   imports: [
@@ -74,7 +76,8 @@ import { PasswordresetPage } from '../pages/passwordreset/passwordreset';
     AdminNewslistPage,
     EditeventPage,
     EditnewsPage,
-    PasswordresetPage
+    PasswordresetPage,
+    EventregistrationsPage
   
   ],
   providers: [

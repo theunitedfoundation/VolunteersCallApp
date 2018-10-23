@@ -47,7 +47,8 @@ export class EventlistPage {
       phone:event.phone,
       email:event.email,
       volunteersneeded: event.volunteersNeeded,
-      venue: event.venue
+      venue: event.venue,
+      key:event.key
 
   });
   }

@@ -28,6 +28,7 @@ import { EditeventPage } from '../pages/editevent/editevent';
 import { ENV } from '../environments/environment.dev';
 import { PasswordresetPage } from '../pages/passwordreset/passwordreset';
 import { EventregistrationsPage } from '../pages/eventregistrations/eventregistrations';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { EventregistrationsPage } from '../pages/eventregistrations/eventregistr
     File,
     FilePath,
     FileChooser,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Push
   ]
 })
 export class AppModule {}

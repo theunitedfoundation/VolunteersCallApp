@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, Icon } from 'ionic-angular';
+import { Platform, Nav, Icon,AlertController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from 'firebase';
@@ -27,7 +27,8 @@ export class MyApp {
 
   show: boolean = false;
   pages: Array<{title: string, component: any,icon:string}>;
-  constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(private authService:AuthService,public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen
+    ) {
     firebase.initializeApp(ENV
       );
     firebase.auth().onAuthStateChanged(user => {
@@ -72,6 +73,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
+      
       if (platform.is('android')) {
         statusBar.overlaysWebView(false);
         statusBar.backgroundColorByHexString('#000000');
@@ -91,4 +93,5 @@ export class MyApp {
     this.rootPage=page.component
     //this.nav.setRoot(page.Component);
   }
+ 
 }

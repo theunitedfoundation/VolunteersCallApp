@@ -96,4 +96,5 @@ function cleanupTokens(response, tokens) {
    }
  });
  return admin.database().ref().update(tokensToRemove);
+    
 }

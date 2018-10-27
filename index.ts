@@ -97,4 +97,12 @@ function cleanupTokens(response, tokens) {
  });
  return admin.database().ref().update(tokensToRemove);
     
-}
+// }
+    
+    
+// Functions are deployed but yet to be tested because of plugin issues.
+
+
+// log message in firebase console:
+
+// Billing account not configured. External network is not accessible and quotas are severely limited. Configure billing account to remove these restrictionsBilling account not configured.

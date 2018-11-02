@@ -49,10 +49,10 @@ export class MyApp {
         ];
       }else{
         this.pages = [
-          { title: 'news', component: NewsPage, icon: "paper"},
-          { title: 'events', component: EventlistPage, icon: "albums" },
-          { title: 'profile', component: ProfilePage , icon: "person"},
-          { title: 'settings', component: settingsPage, icon: "settings"}
+          { title: 'News', component: NewsPage, icon: "paper"},
+          { title: 'Events', component: EventlistPage, icon: "albums" },
+          { title: 'Profile', component: ProfilePage , icon: "person"},
+          { title: 'Settings', component: settingsPage, icon: "settings"}
 
 
 

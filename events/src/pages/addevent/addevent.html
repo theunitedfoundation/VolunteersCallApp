@@ -25,44 +25,44 @@
 
         <ion-item>
           <ion-label floating>Event Name</ion-label>
-          <ion-input type="text" [(ngModel)]="eventItem.eventName"></ion-input>
+          <ion-input type="text" [(ngModel)]="eventItem.eventName" required="true"></ion-input>
         </ion-item>
       
         <ion-item>
           <ion-label floating>Description</ion-label>
-          <ion-input type="text" [(ngModel)]="eventItem.eventDescription"></ion-input>
+          <ion-input type="text" [(ngModel)]="eventItem.eventDescription" required="true"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating>Venue</ion-label>
-            <ion-input type="text" [(ngModel)]="eventItem.venue"></ion-input>
+            <ion-input type="text" [(ngModel)]="eventItem.venue" required="true"></ion-input>
           </ion-item>
           <ion-item>
               <ion-label>Date</ion-label>
-              <ion-datetime displayFormat="DDDD, MMM D,YYYY" [(ngModel)]="eventItem.date"></ion-datetime>
+              <ion-datetime displayFormat="DDDD, MMM D,YYYY" [(ngModel)]="eventItem.date" required="true"></ion-datetime>
             </ion-item>
 
              <ion-item>
               <ion-label>Time</ion-label>
-              <ion-datetime displayFormat="h:mm A" [(ngModel)]="eventItem.time"></ion-datetime>
+              <ion-datetime displayFormat="h:mm A" [(ngModel)]="eventItem.time" required="true"></ion-datetime>
             </ion-item>
                
           <ion-item>
               <ion-label floating>Volunteers Needed</ion-label>
-              <ion-input type="number" [(ngModel)]="eventItem.volunteersNeeded"></ion-input>
+              <ion-input type="number" [(ngModel)]="eventItem.volunteersNeeded" min=0 required="true"></ion-input>
             </ion-item>
 
 
             <h4 color="black">Contact:</h4>
             <ion-item>
                 <ion-label floating>Phone</ion-label>
-                <ion-input type="number" [(ngModel)]="eventItem.phone"></ion-input>
+                <ion-input type="number" [(ngModel)]="eventItem.phone"  required="true"></ion-input>
               </ion-item>
               <ion-item>
                   <ion-label floating>Email</ion-label>
-                  <ion-input type="text" [(ngModel)]="eventItem.email"></ion-input>
+                  <ion-input type="text" [(ngModel)]="eventItem.email" required="true"></ion-input>
                 </ion-item>
 
-                <button ion-button (click)="addEvent(eventItem)">
+                <button ion-button margin-top (click)="addEvent(eventItem)" >
                   Add Event
                 </button>
       

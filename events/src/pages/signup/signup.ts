@@ -76,5 +76,6 @@ export class SignupPage {
         alert.present();
     });
 
+    
   }
 } 

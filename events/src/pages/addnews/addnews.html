@@ -40,9 +40,11 @@
           <ion-label floating>News Author</ion-label>
           <ion-input type="text" [(ngModel)]="newsItem.newsAuthor"></ion-input>
         </ion-item>
-        <ion-label>News Photo</ion-label>
-        <button (click)="chooseImage()"><ion-icon name="image">Select Image</ion-icon></button>
-            <button ion-button (click)="addNews(newsItem)">
+        <ion-label><b>News Photo</b></ion-label>
+        <ion-row>
+          <button (click)="chooseImage()"><ion-icon name="image">Select Image</ion-icon></button>
+        </ion-row>
+            <button ion-button margin-top (click)="addNews(newsItem)">
               Add News
             </button>
   

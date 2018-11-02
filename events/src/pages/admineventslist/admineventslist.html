@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Admineventslist</ion-title>
+    <ion-title>Admin's Events list</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,29 +17,22 @@
 
   <ion-card *ngFor="let event of admineventListRef$ | async">
       <ion-card-header>
-          <ion-row>
-              <ion-col>
-                  <ion-item>
-                      <h2><b>{{event.eventName}}</b></h2>
-                    </ion-item>
-              </ion-col>
-              <ion-col>
-                  <button ion-button color="secondary" outline (click)="goToEditEvent(event)">Edit</button>
-              </ion-col>
-              <ion-col>
-                  
-                <button ion-button color="secondary" outline (click)="goToEventRegistrations(event)">Registrations</button>
-              </ion-col>
+          
               
-            </ion-row>
+                
+                      <h2 padding-left padding-top><b>{{event.eventName}}</b></h2>
+                    
+              
+              
+          
           
            
         </ion-card-header>
       
       <ion-card-content>
           
-          <p>{{event.eventDescription}}</p>
-          <ion-row>
+          <p padding-left>{{event.eventDescription}}</p>
+          <ion-row padding-left>
             <ion-col>
               <p><ion-icon name='calendar'></ion-icon>  {{event.date}}</p>
             </ion-col>
@@ -53,17 +46,26 @@
           
           
           <ion-row>
-              <ion-col no-padding no-margin>
+              <ion-col no-margin >
                   <button ion-button color="primary" clear small icon-left >
                     <ion-icon name='man'></ion-icon>
                     Volunteers Needed: {{event.volunteersNeeded}}
                   </button>
               </ion-col>
 
-                <ion-col no-padding no-margin>
+                <ion-col no-margin>
                     <button ion-button color="primary" clear small icon-left >
                         <ion-icon name='pin'></ion-icon> {{event.venue}}
                     </button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <button ion-button color="primary" outline (click)="goToEditEvent(event)">Edit</button>
+                </ion-col>
+                <ion-col>
+                    
+                  <button ion-button color="primary" outline (click)="goToEventRegistrations(event)">Registrations</button>
                 </ion-col>
             </ion-row>
         </ion-card-content>

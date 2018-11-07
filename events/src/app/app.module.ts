@@ -28,6 +28,9 @@ import { EditeventPage } from '../pages/editevent/editevent';
 import { ENV } from '../environments/environment.dev';
 import { PasswordresetPage } from '../pages/passwordreset/passwordreset';
 import { EventregistrationsPage } from '../pages/eventregistrations/eventregistrations';
+import { CallNumber } from '@ionic-native/call-number';
+import { EmailComposer } from '@ionic-native/email-composer';
+
 
 
 @NgModule({
@@ -87,6 +90,8 @@ import { EventregistrationsPage } from '../pages/eventregistrations/eventregistr
     File,
     FilePath,
     FileChooser,
+    CallNumber ,
+    EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -48,12 +48,15 @@
           Name: {{user.volName}}
       </ion-item>
       <ion-item>
-           
-          Phone: {{user.volPhone}}
+        <button ion-button color="primary" clear small icon-left (click)="Call(user.volPhone)" >
+          <ion-icon name='call'></ion-icon>{{user.volPhone}}
+    </button>
       </ion-item>
       <ion-item>
-          Email: {{user.volEmail}}
-      </ion-item>
+        <button ion-button color="primary" clear small icon-left (click)="Email(user.volEmail)" >
+         <ion-icon name='mail'></ion-icon>{{user.volEmail}}
+        </button>
+     </ion-item>
     </ion-list>
       
     </ion-card-content>

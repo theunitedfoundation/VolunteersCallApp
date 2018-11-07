@@ -44,12 +44,12 @@
 
            <h4>Contact:</h4>
         <ion-item>
-            <button ion-button color="primary" clear small icon-left >
+            <button ion-button color="primary" clear small icon-left (click)="Call()" >
               <ion-icon name='call'></ion-icon>{{phone}}
         </button>
           </ion-item>
           <ion-item>
-               <button ion-button color="primary" clear small icon-left >
+               <button ion-button color="primary" clear small icon-left (click)="Email()" >
                 <ion-icon name='mail'></ion-icon>{{email}}
                </button>
             </ion-item>

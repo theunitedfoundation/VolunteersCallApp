@@ -26,7 +26,7 @@ export class EventlistPage {
 
   constructor(private authService:AuthService,private database: AngularFireDatabase,public navCtrl: NavController,private actionSheetCtrl: ActionSheetController, public navParams: NavParams) {
     
-    this.eventListRef$ = this.database.list('eventlist').valueChanges();
+    this.eventListRef$ = this.database.list('eventlist',ref=>ref.orderByChild('date')).valueChanges();
     
   }
 

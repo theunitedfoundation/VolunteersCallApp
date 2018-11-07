@@ -1,0 +1,64 @@
+<!--
+  Generated template for the EventregistrationsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Event Registrations</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    
+    <ion-card-content>
+      <!-- Add card content here! -->
+      <ion-list>
+          <ion-item>
+              Event Name:  {{eventItem.eventName}}
+            </ion-item>
+        <ion-item>
+            Description:<p>{{eventItem.eventDescription}}</p> 
+          </ion-item>
+
+          <ion-item>
+            Date: {{eventItem.date}}
+          </ion-item>
+
+          <ion-item>
+            Venue: <p >{{eventItem.venue}}</p>
+          </ion-item>
+
+          
+       </ion-list>
+      
+    
+      </ion-card-content>
+    </ion-card>
+    <h3>Volunteer Registrations:</h3>
+    <ion-card *ngFor="let user of eventregistrationsListRef$ | async">
+    <ion-card-content>
+      <ion-list>
+      <ion-item>
+          Name: {{user.volName}}
+      </ion-item>
+      <ion-item>
+        <button ion-button color="primary" clear small icon-left (click)="Call(user.volPhone)" >
+          <ion-icon name='call'></ion-icon>{{user.volPhone}}
+    </button>
+      </ion-item>
+      <ion-item>
+        <button ion-button color="primary" clear small icon-left (click)="Email(user.volEmail)" >
+         <ion-icon name='mail'></ion-icon>{{user.volEmail}}
+        </button>
+     </ion-item>
+    </ion-list>
+      
+    </ion-card-content>
+    </ion-card>
+</ion-content>

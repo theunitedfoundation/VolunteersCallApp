@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Editevent</ion-title>
+    <ion-title>Edit Event</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,50 +18,58 @@
     <ion-list>
 
         <ion-item>
-          <ion-label floating>Event Name</ion-label>
+          <ion-label floating><b>Event Name</b></ion-label>
           <ion-input type="text" [(ngModel)]="eventItem.eventName"></ion-input>
         </ion-item>
       
             <ion-item>
-              <ion-label floating>Description</ion-label>
+              <ion-label floating><b>Description</b></ion-label>
               <ion-input type="text" [(ngModel)]="eventItem.eventDescription"></ion-input>
             </ion-item>
             <ion-item>
-            <ion-label floating>Venue</ion-label>
+            <ion-label floating><b>Venue</b></ion-label>
             <ion-input type="text" [(ngModel)]="eventItem.venue"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label>Date</ion-label>
+              <ion-label><b>Date</b></ion-label>
               <ion-datetime displayFormat="DDDD, MMM D,YYYY" [(ngModel)]="eventItem.date"></ion-datetime>
             </ion-item>
 
             <ion-item>
-              <ion-label>Time</ion-label>
+              <ion-label><b>Time</b></ion-label>
               <ion-datetime displayFormat="h:mm A" [(ngModel)]="eventItem.time"></ion-datetime>
             </ion-item>
                
             <ion-item>
-              <ion-label floating>Volunteers Needed</ion-label>
+              <ion-label floating><b>Volunteers Needed:</b></ion-label>
               <ion-input type="number" [(ngModel)]="eventItem.volunteersneeded"></ion-input>
             </ion-item>
 
 
-            <h4 color="black">Contact:</h4>
+            <h4 color="black"><b>Contact:</b></h4>
               <ion-item>
-                <ion-label floating>Phone</ion-label>
+                <ion-label floating><b>Phone</b></ion-label>
                 <ion-input type="number" [(ngModel)]="eventItem.phone"></ion-input>
               </ion-item>
               <ion-item>
-                  <ion-label floating>Email</ion-label>
+                  <ion-label floating><b>Email</b></ion-label>
                   <ion-input type="text" [(ngModel)]="eventItem.email"></ion-input>
               </ion-item>
+              <ion-row margin-top>
+                <ion-col>
+                    <button ion-button color="secondary" (click)="editEvent(eventItem)">
+                        Save Event
+                      </button>
+                </ion-col>
+                <ion-col>
+                    <button ion-button color="danger" (click)="deleteEvent(eventItem)">
+                        Delete Event
+                       </button>
+                </ion-col>
+              </ion-row>
 
-                <button ion-button color="secondary" (click)="editEvent(eventItem)">
-                  Save Event
-                </button>
-                <button ion-button color="danger" (click)="deleteEvent(eventItem)">
-                   Delete Event
-                  </button>
+               
+                
       </ion-list>
 
 </ion-content>

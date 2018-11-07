@@ -5,6 +5,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {AuthService} from '../../services/auth'
 import { Observable } from 'rxjs';
 import { EditeventPage } from '../editevent/editevent';
+import { EventregistrationsPage } from '../eventregistrations/eventregistrations';
 
 /**
  * Generated class for the AdmineventslistPage page.
@@ -32,6 +33,22 @@ export class AdmineventslistPage {
   goToEditEvent(event){
       
     this.navCtrl.push(EditeventPage, {
+      
+      eventName: event.eventName,
+      eventDescription: event.eventDescription,
+      date:event.date,
+      time:event.time,
+      phone:event.phone,
+      email:event.email,
+      volunteersneeded: event.volunteersNeeded,
+      venue: event.venue,
+      key:event.key
+
+  });
+  }
+
+  goToEventRegistrations(event){
+    this.navCtrl.push(EventregistrationsPage, {
       
       eventName: event.eventName,
       eventDescription: event.eventDescription,

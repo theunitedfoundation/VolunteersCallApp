@@ -28,7 +28,8 @@ export class MyApp {
   show: boolean = false;
   pages: Array<{title: string, component: any,icon:string}>;
   constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    firebase.initializeApp(ENV);
+    firebase.initializeApp(ENV
+      );
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
 
@@ -48,10 +49,10 @@ export class MyApp {
         ];
       }else{
         this.pages = [
-          { title: 'news', component: NewsPage, icon: "paper"},
-          { title: 'events', component: EventlistPage, icon: "albums" },
-          { title: 'profile', component: ProfilePage , icon: "person"},
-          { title: 'settings', component: settingsPage, icon: "settings"}
+          { title: 'News', component: NewsPage, icon: "paper"},
+          { title: 'Events', component: EventlistPage, icon: "albums" },
+          { title: 'Profile', component: ProfilePage , icon: "person"},
+          { title: 'Settings', component: settingsPage, icon: "settings"}
 
 
 

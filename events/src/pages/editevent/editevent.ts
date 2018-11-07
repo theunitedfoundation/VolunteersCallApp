@@ -19,15 +19,7 @@ import {AuthService} from '../../services/auth';
 export class EditeventPage {
   eventItem =
   {
-    // eventName:'',
-    // eventDescription:'',
-    // date:'',
-    // time:'',
-    // phone:'',
-    // email:'',
-    // volunteersneeded:'',
-    // venue:'',
-    // key:''
+    
     eventName:this.navParams.get('eventName'),
     eventDescription:this.navParams.get('eventDescription'),
     date:this.navParams.get('date'),

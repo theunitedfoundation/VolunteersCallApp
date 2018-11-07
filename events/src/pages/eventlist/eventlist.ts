@@ -7,6 +7,8 @@ import {AuthService} from '../../services/auth'
 import { Observable } from 'rxjs';
 import { SigninPage } from '../signin/signin';
 import {EventdetailsPage} from '../eventdetails/eventdetails';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
+
 /**
  * Generated class for the EventlistPage page.
  *
@@ -24,7 +26,8 @@ export class EventlistPage {
 
   eventListRef$ : Observable<any[]>
 
-  constructor(private authService:AuthService,private database: AngularFireDatabase,public navCtrl: NavController,private actionSheetCtrl: ActionSheetController, public navParams: NavParams) {
+  constructor(private authService:AuthService,
+    private launchNavigator: LaunchNavigator,private database: AngularFireDatabase,public navCtrl: NavController,private actionSheetCtrl: ActionSheetController, public navParams: NavParams) {
     
     this.eventListRef$ = this.database.list('eventlist').valueChanges();
     
@@ -51,6 +54,14 @@ export class EventlistPage {
       key:event.key
 
   });
+  }
+  LaunchMap(venue){
+    
+    this.launchNavigator.navigate(venue)
+  .then(
+    success => console.log('Launched navigator'),
+    error => console.log('Error launching navigator', error)
+  );
   }
  // onLogOut(){
    // this.authService.logOut();

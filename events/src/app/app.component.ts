@@ -12,6 +12,10 @@ import { NewsPage } from '../pages/news/news';
 // import {EventdetailsPage} from '../pages/eventdetails/eventdetails';
 import { ProfilePage } from '../pages/profile/profile';
 import {AuthService} from '../services/auth'
+import { AddeventPage } from '../pages/addevent/addevent';
+import { AddnewsPage } from '../pages/addnews/addnews';
+import { AdmineventslistPage } from '../pages/admineventslist/admineventslist';
+//import { ENV } from '@app/env';
 import { ENV } from '../environments/environment.dev';
 
 @Component({
@@ -24,12 +28,13 @@ export class MyApp {
   signinPage = SigninPage;
   signupPage = SignupPage;
   isAuthenticated = false;
+  uid:any;
+  userRole:any;
 
   show: boolean = false;
   pages: Array<{title: string, component: any,icon:string}>;
   constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    firebase.initializeApp(ENV
-      );
+    firebase.initializeApp(ENV);
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
 
@@ -48,15 +53,39 @@ export class MyApp {
           { title: 'Register', component: SignupPage, icon: "book"}
         ];
       }else{
-        this.pages = [
-          { title: 'News', component: NewsPage, icon: "paper"},
-          { title: 'Events', component: EventlistPage, icon: "albums" },
-          { title: 'Profile', component: ProfilePage , icon: "person"},
-          { title: 'Settings', component: settingsPage, icon: "settings"}
-
-
-
-        ];
+        this.uid = this.authService.getActiveUser().uid;
+        firebase.database().ref('volunteers/'+this.uid).once('value').then((snapshot) =>{
+          this.userRole=snapshot.val().role;
+          if(this.userRole=="admin")
+          {
+            console.log('refereshed');
+            this.pages = [
+              { title: 'News', component: NewsPage, icon: "paper"},
+              { title: 'Events', component: EventlistPage, icon: "albums" },
+              { title: 'Profile', component: ProfilePage , icon: "person"},
+              { title: 'Settings', component: settingsPage, icon: "settings"},
+              { title: 'Add Event',component:AddeventPage,icon:"add-circle"},
+              { title: 'Add News',component:AddnewsPage,icon:"logo-hackernews"},
+              { title: 'Event Registrations',component:AdmineventslistPage,icon:"people"}
+            ];
+          }
+          if(this.userRole=="user")
+          {
+            this.pages = [
+              { title: 'News', component: NewsPage, icon: "paper"},
+              { title: 'Events', component: EventlistPage, icon: "albums" },
+              { title: 'Profile', component: ProfilePage , icon: "person"},
+              { title: 'Settings', component: settingsPage, icon: "settings"}
+              
+    
+    
+            ];
+  
+          }
+          console.log(this.userRole+'refreshed');
+        });
+       
+        
       }
 
     });

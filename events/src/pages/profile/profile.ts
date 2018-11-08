@@ -22,6 +22,7 @@ export class ProfilePage {
   public userPhone: any;
   public userGender:any;
   public userProfession:any;
+  public userRole:any;
   
 
   constructor(private authService: AuthService,public navCtrl: NavController, public navParams: NavParams) {
@@ -36,7 +37,8 @@ export class ProfilePage {
        this.userGender=snapshot.val().gender;
        this.userPhone=snapshot.val().phone;
        this.userProfession=snapshot.val().profession;
-    
+       this.userRole=snapshot.val().role || "user";
+       console.log(this.userRole);
       // var email = (snapshot.val() && snapshot.val().email) || '';
       // console.log(email)
       // var phone = (snapshot.val() && snapshot.val().phone) || '';

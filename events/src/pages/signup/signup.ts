@@ -26,6 +26,7 @@ export class SignupPage {
   public gender : any;
   public profession : any;
   public userProfile: any;
+  public role:any;
  
  
   
@@ -45,7 +46,8 @@ export class SignupPage {
       email: form.value.email,
       phone: form.value.phone,
       gender: form.value.gender,
-      profession: form.value.profession
+      profession: form.value.profession,
+      role:"user"
     };
     let loading = this.loadCtrl.create({
       content: 'Creating user...'

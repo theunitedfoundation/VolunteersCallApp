@@ -28,7 +28,7 @@ export class EventdetailsPage {
   // public userGender:any;
   // public userProfession:any;
   constructor(private authService: AuthService,public navCtrl: NavController, public navParams: NavParams,
-    private callNumber: CallNumber, alertCtrl: AlertController,private emailComposer: EmailComposer) {
+    private callNumber: CallNumber,alertCtrl: AlertController,private emailComposer: EmailComposer) {
        
        
     this.uid=this.authService.getActiveUser().uid;

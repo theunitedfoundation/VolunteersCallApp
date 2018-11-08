@@ -50,7 +50,7 @@
                 </ion-col>
 
                   <ion-col  no-margin>
-                      <button ion-button color="primary" clear small icon-left >
+                      <button ion-button color="primary" clear small icon-left (click)="LaunchMap(event.venue)" >
                           <ion-icon name='pin'></ion-icon> {{event.venue}}
                       </button>
                   </ion-col>

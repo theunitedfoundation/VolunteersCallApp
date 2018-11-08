@@ -30,6 +30,7 @@ import { PasswordresetPage } from '../pages/passwordreset/passwordreset';
 import { EventregistrationsPage } from '../pages/eventregistrations/eventregistrations';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 
 
 
@@ -92,6 +93,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
     FileChooser,
     CallNumber ,
     EmailComposer,
+    LaunchNavigator,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

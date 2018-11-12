@@ -7,6 +7,7 @@ import { Http, Response } from "@angular/http";
 import firebase from 'firebase';
 import { map } from 'rxjs/operators';
 import { auth } from '../../../node_modules/firebase';
+
 /**
  * Generated class for the SignupPage page.
  *

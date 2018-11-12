@@ -25,5 +25,12 @@ ion-item:first-child {
       font-size: 0.9em;
       
     }
-  }  
+  } 
+  
+  .form-control-feedback {
+    //padding: 12px;
+    //background-color: rgba(255, 133, 0, 0.1);
+    font-weight: bold;
+    color: red;
+}
 }

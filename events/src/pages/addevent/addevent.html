@@ -20,52 +20,113 @@
 
 
 <ion-content padding class="theme-color">
-
+  
     <ion-list>
-
+        <form #event="ngForm" novalidate>
         <ion-item>
           <ion-label floating>Event Name</ion-label>
-          <ion-input type="text" [(ngModel)]="eventItem.eventName" required="true"></ion-input>
+          <ion-input type="text" [(ngModel)]="eventItem.eventName" [max]=15 name="eventName" #eventName="ngModel" required="true"></ion-input>
         </ion-item>
+        <div class="form-group" [ngClass]="{  
+          'has-danger': eventName.invalid && (eventName.dirty || eventName.touched),  
+          'has-success': eventName.valid && (eventName.dirty || eventName.touched)}"> 
+        <div class="form-control-feedback" *ngIf="eventName.errors && (eventName.dirty || eventName.touched)">  
+            <p *ngIf="eventName.errors.required">Name is required</p>  
+        </div>    
+    </div>
       
         <ion-item>
           <ion-label floating>Description</ion-label>
-          <ion-input type="text" [(ngModel)]="eventItem.eventDescription" required="true"></ion-input>
+          <ion-input type="text" [(ngModel)]="eventItem.eventDescription" name="eventDescription" [max]=100 required="true" #eventDescription="ngModel"></ion-input>
         </ion-item>
+        <div class="form-group" [ngClass]="{  
+          'has-danger': eventDescription.invalid && (eventDescription.dirty || eventDescription.touched),  
+          'has-success': eventDescription.valid && (eventDescription.dirty || eventDescription.touched)}"> 
+        <div class="form-control-feedback" *ngIf="eventDescription.errors && (eventDescription.dirty || eventDescription.touched)">  
+            <p *ngIf="eventDescription.errors.required">This field is required</p>  
+        </div>    
+    </div>
+
         <ion-item>
             <ion-label floating>Venue</ion-label>
-            <ion-input type="text" [(ngModel)]="eventItem.venue" required="true"></ion-input>
+            <ion-input type="text" [(ngModel)]="eventItem.venue" name="venue" required="true" #venue="ngModel"></ion-input>
           </ion-item>
+          <div class="form-group" [ngClass]="{  
+            'has-danger': venue.invalid && (venue.dirty || venue.touched),  
+            'has-success': venue.valid && (venue.dirty || venue.touched)}"> 
+          <div class="form-control-feedback" *ngIf="venue.errors && (venue.dirty || venue.touched)">  
+              <p *ngIf="venue.errors.required">This field is required</p>  
+          </div>    
+      </div>
+  
+          
           <ion-item>
               <ion-label>Date</ion-label>
-              <ion-datetime displayFormat="DDDD, MMM D,YYYY" [(ngModel)]="eventItem.date" required="true"></ion-datetime>
+              <ion-datetime displayFormat="DDDD, MMM D,YYYY" [(ngModel)]="eventItem.date"  name="date" required="true" #date="ngModel"></ion-datetime>
             </ion-item>
+            <div class="form-group" [ngClass]="{  
+              'has-danger': date.invalid && (date.dirty || date.touched),  
+              'has-success': date.valid && (date.dirty || date.touched)}"> 
+            <div class="form-control-feedback" *ngIf="date.errors && (date.dirty || date.touched)">  
+                <p *ngIf="date.errors.required">This field is required</p>  
+            </div>    
+        </div>
 
              <ion-item>
               <ion-label>Time</ion-label>
-              <ion-datetime displayFormat="h:mm A" [(ngModel)]="eventItem.time" required="true"></ion-datetime>
+              <ion-datetime displayFormat="h:mm A" [(ngModel)]="eventItem.time" name="time" required="true" #time="ngModel"></ion-datetime>
             </ion-item>
+            <div class="form-group" [ngClass]="{  
+              'has-danger': time.invalid && (time.dirty || time.touched),  
+              'has-success': time.valid && (time.dirty || time.touched)}"> 
+            <div class="form-control-feedback" *ngIf="time.errors && (time.dirty || time.touched)">  
+                <p *ngIf="time.errors.required">This field is required</p>  
+            </div>    
+        </div>
+
                
           <ion-item>
               <ion-label floating>Volunteers Needed</ion-label>
-              <ion-input type="number" [(ngModel)]="eventItem.volunteersNeeded" min=0 required="true"></ion-input>
+              <ion-input type="number" [(ngModel)]="eventItem.volunteersNeeded" name="volunteersNeeded" min=0 required="true" #volunteersNeeded="ngModel"></ion-input>
             </ion-item>
+            <div class="form-group" [ngClass]="{  
+              'has-danger': volunteersNeeded.invalid && (volunteersNeeded.dirty || volunteersNeeded.touched),  
+              'has-success': volunteersNeeded.valid && (volunteersNeeded.dirty || volunteersNeeded.touched)}"> 
+            <div class="form-control-feedback" *ngIf="volunteersNeeded.errors && (volunteersNeeded.dirty || volunteersNeeded.touched)">  
+                <p *ngIf="volunteersNeeded.errors.required">This field is required</p>  
+            </div>    
+        </div>
 
 
             <h4 color="black">Contact:</h4>
             <ion-item>
                 <ion-label floating>Phone</ion-label>
-                <ion-input type="number" [(ngModel)]="eventItem.phone"  required="true"></ion-input>
+                <ion-input type="number" [(ngModel)]="eventItem.phone" [max]=10 name="phone"  required="true" #phone="ngModel"></ion-input>
               </ion-item>
+              <div class="form-group" [ngClass]="{  
+                'has-danger': phone.invalid && (phone.dirty || phone.touched),  
+                'has-success': phone.valid && (phone.dirty || phone.touched)}"> 
+              <div class="form-control-feedback" *ngIf="phone.errors && (phone.dirty || phone.touched)">  
+                  <p *ngIf="phone.errors.required">This field is required</p>  
+              </div>    
+          </div> 
+
               <ion-item>
                   <ion-label floating>Email</ion-label>
-                  <ion-input type="text" [(ngModel)]="eventItem.email" required="true"></ion-input>
+                  <ion-input type="text" [(ngModel)]="eventItem.email" name="email" required="true" #email="ngModel"></ion-input>
                 </ion-item>
-
-                <button ion-button margin-top (click)="addEvent(eventItem)" >
+                <div class="form-group" [ngClass]="{  
+                  'has-danger': email.invalid && (email.dirty || email.touched),  
+                  'has-success': email.valid && (email.dirty || email.touched)}"> 
+                <div class="form-control-feedback" *ngIf="email.errors && (email.dirty || email.touched)">  
+                    <p *ngIf="email.errors.required">This field is required</p>  
+                </div>    
+            </div> 
+              </form>
+                <button ion-button margin-top type="submit" (click)="addEvent(eventItem)" >
                   Add Event
                 </button>
       
       </ion-list>
-
+    
 </ion-content>

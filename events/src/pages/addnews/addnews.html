@@ -21,31 +21,69 @@
 
 <ion-content padding class="theme-color">
   <ion-list>
-
+  <form #new="ngForm" novalidate>
     <ion-item>
       <ion-label floating>News Title</ion-label>
-      <ion-input type="text" [(ngModel)]="newsItem.newsTitle"></ion-input>
+      <ion-input type="text" [(ngModel)]="newsItem.newsTitle" name="newsTitle" #newsTitle="ngModel" required></ion-input>
     </ion-item>
+    <div class="form-group" [ngClass]="{  
+      'has-danger': newsTitle.invalid && (newsTitle.dirty || newsTitle.touched),  
+      'has-success': newsTitle.valid && (newsTitle.dirty || newsTitle.touched)}"> 
+    <div class="form-control-feedback" *ngIf="newsTitle.errors && (newsTitle.dirty || newsTitle.touched)">  
+        <p *ngIf="newsTitle.errors.required">required field</p>  
+    </div>    
+    </div> 
   
     <ion-item>
       <ion-label floating>News Subtitle</ion-label>
-      <ion-input type="text" [(ngModel)]="newsItem.newsSubtitle"></ion-input>
+      <ion-input type="text" [(ngModel)]="newsItem.newsSubtitle" name="newsSubtitle" #newsSubtitle="ngModel"></ion-input>
     </ion-item>
+    <div class="form-group" [ngClass]="{  
+      'has-danger': newsSubtitle.invalid && (newsSubtitle.dirty || newsSubtitle.touched),  
+      'has-success': newsSubtitle.valid && (newsSubtitle.dirty || newsSubtitle.touched)}"> 
+    <div class="form-control-feedback" *ngIf="newsSubtitle.errors && (newsSubtitle.dirty || newsSubtitle.touched)">  
+        <p *ngIf="newsSubtitle.errors.required">required field</p>  
+    </div>    
+</div>
+
     <ion-item>
         <ion-label floating>News Body</ion-label>
-        <ion-input type="text" [(ngModel)]="newsItem.newsBody"></ion-input>
+        <ion-input type="text" [(ngModel)]="newsItem.newsBody" name="newsBody" #newsBody="ngModel" required></ion-input>
       </ion-item>
+      <div class="form-group" [ngClass]="{  
+        'has-danger': newsBody.invalid && (newsBody.dirty || newsBody.touched),  
+        'has-success': newsBody.valid && (newsBody.dirty || newsBody.touched)}"> 
+      <div class="form-control-feedback" *ngIf="newsBody.errors && (newsBody.dirty || newsBody.touched)">  
+          <p *ngIf="newsBody.errors.required">required field</p>  
+      </div>    
+  </div>
       <ion-item>
           <ion-label>News Date</ion-label>
-          <ion-datetime displayFormat="DDDD, MMM D,YYYY" [(ngModel)]="newsItem.newsDate"></ion-datetime>
+          <ion-datetime displayFormat="DDDD, MMM D,YYYY" [(ngModel)]="newsItem.newsDate" name="newsDate" #newsDate="ngModel" required></ion-datetime>
         </ion-item>
+        <div class="form-group" [ngClass]="{  
+          'has-danger': newsDate.invalid && (newsDate.dirty || newsDate.touched),  
+          'has-success': newsDate.valid && (newsDate.dirty || newsDate.touched)}"> 
+        <div class="form-control-feedback" *ngIf="newsDate.errors && (newsDate.dirty || newsDate.touched)">  
+            <p *ngIf="newsDate.errors.required">required field</p>  
+        </div>    
+    </div>
         
           
            
       <ion-item>
           <ion-label floating>News Author</ion-label>
-          <ion-input type="text" [(ngModel)]="newsItem.newsAuthor"></ion-input>
+          <ion-input type="text" [(ngModel)]="newsItem.newsAuthor" name=newsAuthor #newsAuthor="ngModel"></ion-input>
         </ion-item>
+        <div class="form-group" [ngClass]="{  
+          'has-danger': newsAuthor.invalid && (newsAuthor.dirty || newsAuthor.touched),  
+          'has-success': newsAuthor.valid && (newsAuthor.dirty || newsAuthor.touched)}"> 
+        <div class="form-control-feedback" *ngIf="newsAuthor.errors && (newsAuthor.dirty || newsAuthor.touched)">  
+            <p *ngIf="newsAuthor.errors.required">Name is required</p>  
+        </div>    
+    </div>
+
+      </form>
         <ion-label><b>News Photo</b></ion-label>
         <ion-row>
           <button (click)="chooseImage()"><ion-icon name="image">Select Image</ion-icon></button>

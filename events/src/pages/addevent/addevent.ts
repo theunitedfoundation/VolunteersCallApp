@@ -5,7 +5,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import firebase from 'firebase';
 import { Http, Response } from "@angular/http";
 import {AuthService} from '../../services/auth';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+
 /**
  * Generated class for the AddeventPage page.
  *
@@ -22,7 +22,7 @@ export class AddeventPage {
    eventItem = {} as EventItem;
 
    eventItemRef$ : AngularFireList<EventItem> 
-  constructor(private authService: AuthService,private database: AngularFireDatabase,private formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private authService: AuthService,private database: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
 
     this.eventItemRef$ = this.database.list('eventlist');
   }

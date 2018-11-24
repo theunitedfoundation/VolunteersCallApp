@@ -50,7 +50,7 @@ export class MyApp {
         //this.rootPage=SigninPage;
        this.pages = [
           { title: 'SignIn', component: SigninPage , icon: "log-in"},
-          { title: 'Register', component: SignupPage, icon: "book"}
+         // { title: 'Register', component: SignupPage, icon: "book"}
         ];
       }else{
         this.uid = this.authService.getActiveUser().uid;
@@ -63,7 +63,7 @@ export class MyApp {
               { title: 'News', component: NewsPage, icon: "paper"},
               { title: 'Events', component: EventlistPage, icon: "albums" },
               { title: 'Profile', component: ProfilePage , icon: "person"},
-              { title: 'Settings', component: settingsPage, icon: "settings"},
+             // { title: 'Settings', component: settingsPage, icon: "settings"},
               { title: 'Add Event',component:AddeventPage,icon:"add-circle"},
               { title: 'Add News',component:AddnewsPage,icon:"logo-hackernews"},
               { title: 'Event Registrations',component:AdmineventslistPage,icon:"people"}
@@ -75,7 +75,7 @@ export class MyApp {
               { title: 'News', component: NewsPage, icon: "paper"},
               { title: 'Events', component: EventlistPage, icon: "albums" },
               { title: 'Profile', component: ProfilePage , icon: "person"},
-              { title: 'Settings', component: settingsPage, icon: "settings"}
+             // { title: 'Settings', component: settingsPage, icon: "settings"}
               
     
     

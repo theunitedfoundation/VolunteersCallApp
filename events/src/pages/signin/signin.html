@@ -5,45 +5,45 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Call for Volunteers</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Call for Volunteers</ion-title>
+  </ion-navbar>
+</ion-header>
 
 
 <ion-content padding>
-    
-    <form #f="ngForm" (ngSubmit)="onSignIn(f)">
-        <ion-list >
-    
-           
-            
-            <ion-item >
-                <ion-label floating>E-mail</ion-label>
-                <ion-input type="email" ngModel name="email" required></ion-input>
-              </ion-item>
-           
+  
+  <form #f="ngForm" (ngSubmit)="onSignIn(f)">
+      <ion-list >
+  
+         
           
-            <ion-item >
-              <ion-label floating>Password</ion-label>
-              <ion-input type="password" ngModel name="password" required ></ion-input>
-              
+          <ion-item >
+              <ion-label floating>E-mail</ion-label>
+              <ion-input type="email" ngModel name="email" required></ion-input>
             </ion-item>
-          
-          </ion-list>
-          <button ion-button type="submit" [disabled]="!f.valid" >Sign In</button>
-        </form>
-        <button ion-button round outline (click)="goToPasswordReset()">Forgot Password</button>
-        <ion-label>Don't Have An Account</ion-label>
-        <div >
-            <button ion-button (click)="goToRegister()">Sign Up</button>
-          </div>
+         
+        
+          <ion-item >
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" ngModel name="password" required ></ion-input>
+            
+          </ion-item>
+        
+        </ion-list>
+        <button ion-button type="submit" [disabled]="!f.valid" >Sign In</button>
+      </form>
+      <button ion-button margin-top outline (click)="goToPasswordReset()">Forgot Password</button>
+      <ion-label center><b>Don't Have An Account yet? Why the wait? Sign Up</b></ion-label>
+      <div >
+          <button ion-button (click)="goToRegister()">Sign Up</button>
+        </div>
 <!-- <h2>Admin Section</h2>
-          <button ion-button (click)="goToAddEvent()">Add Event</button>
-          <button ion-button (click)="goToAddNews()">Add News</button>
-          <button ion-button (click)="goToAdminEventsList()">Admin Event List</button>
-          <button ion-button (click)="goToAdminNewsList()">Admin News List</button> -->
+        <button ion-button (click)="goToAddEvent()">Add Event</button>
+        <button ion-button (click)="goToAddNews()">Add News</button>
+        <button ion-button (click)="goToAdminEventsList()">Admin Event List</button>
+        <button ion-button (click)="goToAdminNewsList()">Admin News List</button> -->
 </ion-content>

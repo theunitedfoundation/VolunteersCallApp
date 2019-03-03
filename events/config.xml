@@ -90,5 +90,8 @@
     <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^4.2.2">
         <variable name="OKHTTP_VERSION" value="3.+" />
     </plugin>
+    <plugin name="phonegap-plugin-push" spec="^2.2.3">
+        <variable name="SENDER_ID" value="333057397510" />
+    </plugin>
     <engine name="android" spec="7.0.0" />
 </widget>

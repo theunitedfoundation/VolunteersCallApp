@@ -31,7 +31,7 @@ import { EventregistrationsPage } from '../pages/eventregistrations/eventregistr
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
-
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 
 @NgModule({
@@ -88,6 +88,7 @@ import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-na
     StatusBar,
     SplashScreen,
     AuthService,
+   Push,
     File,
     FilePath,
     FileChooser,

@@ -30,6 +30,7 @@
     "@ionic-native/file-chooser": "^4.15.0",
     "@ionic-native/file-path": "^4.15.0",
     "@ionic-native/launch-navigator": "^4.17.0",
+    "@ionic-native/push": "^4.18.0",
     "@ionic-native/splash-screen": "~4.12.0",
     "@ionic-native/status-bar": "~4.12.0",
     "@ionic/storage": "2.1.3",
@@ -41,10 +42,10 @@
     "cordova-plugin-dialogs": "^2.0.1",
     "cordova-plugin-email-composer": "^0.8.15",
     "cordova-plugin-file": "^6.0.1",
-    "cordova-plugin-filechooser": "^1.0.1",
-    "cordova-plugin-filepath": "^1.4.2",
+    "cordova-plugin-filechooser": "^1.2.0",
+    "cordova-plugin-filepath": "^1.5.1",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
-    "cordova-plugin-ionic-webview": "^2.2.5",
+    "cordova-plugin-ionic-webview": "^2.4.0",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
@@ -53,6 +54,7 @@
     "ionicons": "3.0.0",
     "mx.ferreyra.callnumber": "0.0.2",
     "ngx-show-hide-password": "^1.2.6",
+    "phonegap-plugin-push": "^2.2.3",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.3.2",
     "sw-toolbox": "3.6.0",
@@ -83,7 +85,10 @@
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {
         "OKHTTP_VERSION": "3.+"
       },
-      "call-number": {}
+      "call-number": {},
+      "phonegap-plugin-push": {
+        "SENDER_ID": "333057397510"
+      }
     },
     "platforms": [
       "android"

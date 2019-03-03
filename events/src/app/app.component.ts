@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, Icon } from 'ionic-angular';
+import { Platform, Nav,AlertController, Icon } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from 'firebase';
@@ -17,7 +17,7 @@ import { AddnewsPage } from '../pages/addnews/addnews';
 import { AdmineventslistPage } from '../pages/admineventslist/admineventslist';
 //import { ENV } from '@app/env';
 import { ENV } from '../environments/environment.dev';
-
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 @Component({
   templateUrl: 'app.html'
 })
@@ -33,7 +33,7 @@ export class MyApp {
 
   show: boolean = false;
   pages: Array<{title: string, component: any,icon:string}>;
-  constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(private authService:AuthService,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public push: Push,public alertCtrl: AlertController) {
     firebase.initializeApp(ENV);
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -89,7 +89,7 @@ export class MyApp {
       }
 
     });
-
+    this.initPushNotification();
 
     // platform.ready().then(() => {
     //   // Okay, so the platform is ready and our plugins are available.
@@ -104,11 +104,64 @@ export class MyApp {
       if (platform.is('android')) {
         statusBar.overlaysWebView(false);
         statusBar.backgroundColorByHexString('#000000');
+        
     }
       splashScreen.hide();
     });
   }
+  initPushNotification(){
 
+    const options: PushOptions = {
+      android: {
+        senderID: "333057397510"
+      }
+    };
+  
+    const pushObject: PushObject = this.push.init(options);
+  
+      pushObject.on('registration').subscribe((data: any) => {
+        console.log("device token:", data.registrationId);
+  
+        let alert = this.alertCtrl.create({
+                    title: 'device token',
+                    subTitle: data.registrationId,
+                    buttons: ['OK']
+                  });
+                  alert.present();
+  
+      });
+  
+      pushObject.on('notification').subscribe((data: any) => {
+        console.log('message', data.message);
+        if (data.additionalData.foreground) {
+          let confirmAlert = this.alertCtrl.create({
+            title: 'New Notification',
+            message: data.message,
+            buttons: [{
+              text: 'Ignore',
+              role: 'cancel'
+            }, {
+              text: 'View',
+              handler: () => {
+                //TODO: Your logic here
+              }
+            }]
+          });
+          confirmAlert.present();
+        } else {
+        let alert = this.alertCtrl.create({
+                    title: 'clicked on',
+                    subTitle: "you clicked on the notification!",
+                   buttons: ['OK']
+                  });
+                  alert.present();
+          console.log("Push notification clicked");
+        }
+     });
+  
+      pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
+    }
+  
   onLogOut(){
     this.authService.logOut();
     this.show = false;
